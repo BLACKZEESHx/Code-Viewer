@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+  <title>Code Veiwer</title>
+</head>
+
+<body style="align-items: center; justify-items: center;">
+  <div class="code-editor">
+    <div class="header">
+      <span class="title">{{ .LangName }}</span>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon">
+        <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+        <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
+        <g id="SVGRepo_iconCarrier">
+          <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M6 6L18 18"></path>
+          <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M18 6L6 18"></path>
+        </g>
+      </svg>
+    </div>
+
+    <div class="editor-content">
+      <!-- {{ .Code }} -->
+      </code>
+    </div>
+  </div>
+  <div class="inbox">
+    <div class="wave-group">
+      <input required="" type="text" class="input" id="cinput" />
+      <span class="bar"></span>
+      <label class="label">
+        <span class="label-char" style="--index: 0">L</span>
+        <span class="label-char" style="--index: 1">a</span>
+        <span class="label-char" style="--index: 2">n</span>
+        <span class="label-char" style="--index: 3">g</span>
+        <span class="label-char" style="--index: 4">u</span>
+        <span class="label-char" style="--index: 5">a</span>
+        <span class="label-char" style="--index: 6">g</span>
+        <span class="label-char" style="--index: 7">e</span>
+        <span class="label-char" style="--index: 8">.</span>
+        <span class="label-char" style="--index: 9">N</span>
+        <span class="label-char" style="--index: 10">a</span>
+        <span class="label-char" style="--index: 11">m</span>
+        <span class="label-char" style="--index: 12">e</span>
+      </label>
+    </div>
+
+    <div class="wave-group" aria-multiline="true">
+      <textarea required="" class="input" id="codearea" cols="30" rows="1"></textarea>
+      <span class="bar"></span>
+      <label class="label">
+        <span class="label-char" style="--index: 0">C</span>
+        <span class="label-char" style="--index: 1">o</span>
+        <span class="label-char" style="--index: 2">d</span>
+        <span class="label-char" style="--index: 3">e</span>
+      </label>
+    </div>
+  </div>
+  <select name="style" id="style">
+    <option value="" disabled="">Style</option>
+    <option value="abap">abap</option>
+    <option value="algol">algol</option>
+    <option value="algol_nu">algol_nu</option>
+    <option value="arduino">arduino</option>
+    <option value="autumn">autumn</option>
+    <option value="average">average</option>
+    <option value="base16-snazzy">base16-snazzy</option>
+    <option value="borland">borland</option>
+    <option value="bw">bw</option>
+    <option value="catppuccin-frappe">catppuccin-frappe</option>
+    <option value="catppuccin-latte">catppuccin-latte</option>
+    <option value="catppuccin-macchiato">catppuccin-macchiato</option>
+    <option value="catppuccin-mocha">catppuccin-mocha</option>
+    <option value="colorful">colorful</option>
+    <option value="doom-one">doom-one</option>
+    <option value="doom-one2">doom-one2</option>
+    <option value="dracula">dracula</option>
+    <option value="emacs">emacs</option>
+    <option value="friendly">friendly</option>
+    <option value="fruity">fruity</option>
+    <option value="github">github</option>
+    <option value="github-dark">github-dark</option>
+    <option value="gruvbox">gruvbox</option>
+    <option value="gruvbox-light">gruvbox-light</option>
+    <option value="hr_high_contrast">hr_high_contrast</option>
+    <option value="hrdark">hrdark</option>
+    <option value="igor">igor</option>
+    <option value="lovelace">lovelace</option>
+    <option value="manni">manni</option>
+    <option value="modus-operandi">modus-operandi</option>
+    <option value="modus-vivendi">modus-vivendi</option>
+    <option value="monokai">monokai</option>
+    <option value="monokailight" selected="">monokailight</option>
+    <option value="murphy">murphy</option>
+    <option value="native">native</option>
+    <option value="nord">nord</option>
+    <option value="onedark">onedark</option>
+    <option value="onesenterprise">onesenterprise</option>
+    <option value="paraiso-dark">paraiso-dark</option>
+    <option value="paraiso-light">paraiso-light</option>
+    <option value="pastie">pastie</option>
+    <option value="perldoc">perldoc</option>
+    <option value="pygments">pygments</option>
+    <option value="rainbow_dash">rainbow_dash</option>
+    <option value="rose-pine">rose-pine</option>
+    <option value="rose-pine-dawn">rose-pine-dawn</option>
+    <option value="rose-pine-moon">rose-pine-moon</option>
+    <option value="rrt">rrt</option>
+    <option value="solarized-dark">solarized-dark</option>
+    <option value="solarized-dark256">solarized-dark256</option>
+    <option value="solarized-light">solarized-light</option>
+    <option value="swapoff">swapoff</option>
+    <option value="tango">tango</option>
+    <option value="trac">trac</option>
+    <option value="vim">vim</option>
+    <option value="vs">vs</option>
+    <option value="vulcan">vulcan</option>
+    <option value="witchhazel">witchhazel</option>
+    <option value="xcode">xcode</option>
+    <option value="xcode-dark">xcode-dark</option>
+
+  </select>
+  </div>
+  <script>
+    let code = document.getElementById("codearea");
+    let langname = document.getElementById("cinput");
+    let selectElement = document.getElementById('style');
+    const urlParams = new URLSearchParams(window.location.search);
+    const codeval = urlParams.get('code').replace("%OA/g", "/\n");
+    const langval = urlParams.get('langname');
+    const themeval = urlParams.get('theme');
+    code.innerText = codeval;
+    langname.innerText = langval;
+    selectElement.options[selectElement.selectedIndex].value = themeval
+    selectElement.options[selectElement.selectedIndex].text = themeval
+    console.log(`Value of param1: ${codeval}`);
+    console.log(`Value of param2: ${langval}`);
+
+
+
+    function codebeauty() {
+      let code = document.getElementById("codearea").value;
+      let langname = document.getElementById("cinput").value;
+      let hid = document.getElementById("hid");
+      hid.innerText = encodeURI(code);
+      console.log("Code", code)
+      console.log("hid", hid.innerText)
+
+      var selectElement = document.getElementById('style');
+      var selectedValue = selectElement.options[selectElement.selectedIndex].value;
+      var selectedText = selectElement.options[selectElement.selectedIndex].text;
+      console.log('Selected value:', selectedValue);
+      console.log('Selected text:', selectedText);
+
+      window.location =
+        "/Chroma" + "?code=" + hid.innerText + "&langname=" + langname + "&theme=" + selectedText;
+    }
+
+  </script>
+
+  <img src="https://wallpapercave.com/uwp/uwp3870950.png" alt="bgimage" style="
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        -webkit-user-drag: none;
+      " class="bgimage" />
+  <p hidden="true" id="hid"></p>
+  <button class="btn" onclick="codebeauty()">
+    <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
+      <path
+        d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z">
+      </path>
+    </svg>
+
+    <span class="text">Generate</span>
+  </button>
+
+  <script>
+    window.onload = function () {
+      // Get the style tag within the head
+      const headStyleTag = document.querySelector('head style');
+
+      // Get the pre tag within the body
+      const preTag = document.querySelector('body pre');
+
+
+      // Get the .editor-content div
+      const codeDiv = document.querySelector('.editor-content');
+      const maincodeDiv = document.querySelector('.code-editor');
+      let code = document.getElementById("codearea");
+
+      // Check if both style tag and pre tag exist
+      if (headStyleTag && preTag && codeDiv) {
+        // Clone the style tag
+        const clonedStyleTag = headStyleTag.cloneNode(true);
+
+        // Clone the pre tag
+        const clonedPreTag = preTag.cloneNode(true);
+        // clonedPreTag.style.borderRadius = "18px";
+        // maincodeDiv.style.width = "auto";
+        // maincodeDiv.style.height = "auto";
+        console.log(preTag.innerHTML)
+        console.log(clonedStyleTag)
+        console.log(clonedPreTag)
+        // Append the cloned style tag and pre tag to the .editor-content div
+        codeDiv.appendChild(clonedStyleTag);
+        codeDiv.appendChild(clonedPreTag);
+        preTag.remove();
+        headStyleTag.remove();
+      } else {
+        console.error('Elements not found.');
+      }
+    };
+
+  </script>
+
+  <style>
+    .btn {
+      border: none;
+      width: 15em;
+      margin: 8px;
+      /* width: in; */
+      height: 5em;
+      border-radius: 3em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      background: #1C1A1C;
+      cursor: pointer;
+      transition: all 450ms ease-in-out;
+    }
+
+    .sparkle {
+      fill: #AAAAAA;
+      transition: all 800ms ease;
+    }
+
+    .text {
+      font-weight: 600;
+      color: #AAAAAA;
+      font-size: medium;
+    }
+
+    .btn:hover {
+      background: linear-gradient(0deg, #A47CF3, #683FEA);
+      box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+        0px 0px 180px 0px #9917FF;
+      transform: translateY(-2px);
+    }
+
+    .btn:hover .text {
+      color: white;
+    }
+
+    .btn:hover .sparkle {
+      fill: white;
+      transform: scale(1.2);
+    }
+
+    .code-editor {
+      height: 330px;
+      max-width: 88%;
+      background-color: #1d1e22;
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 2px;
+      /* margin-top: 15%; */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px;
+    }
+
+    .title {
+      font-family: Lato, sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 1.57px;
+      color: rgb(212 212 212);
+    }
+
+    .icon {
+      width: 20px;
+      transition: 0.2s ease;
+    }
+
+    .icon:hover {
+      cursor: pointer;
+      border-radius: 50px;
+      background-color: #6e7281;
+    }
+
+    .editor-content {
+      margin: 0 10px 10px;
+      color: white;
+    }
+
+    .inbox {
+      margin-top: 50%;
+      padding-left: 20px;
+      display: flex;
+    }
+
+    .wave-group {
+      position: relative;
+      padding-left: 4px;
+    }
+
+    .wave-group .input {
+      font-size: 16px;
+      padding: 10px 10px 10px 5px;
+      display: block;
+      width: 200px;
+      border: none;
+      border-bottom: 1px solid #515151;
+      background: transparent;
+    }
+
+    .wave-group .input:focus {
+      outline: none;
+    }
+
+    .wave-group .label {
+      color: #999;
+      font-size: 18px;
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      left: 5px;
+      top: 10px;
+      display: flex;
+    }
+
+    .wave-group .label-char {
+      transition: 0.2s ease all;
+      transition-delay: calc(var(--index) * 0.05s);
+    }
+
+    .wave-group .input:focus~label .label-char,
+    .wave-group .input:valid~label .label-char {
+      transform: translateY(-20px);
+      font-size: 14px;
+      color: #5264ae;
+    }
+
+    .wave-group .bar {
+      position: relative;
+      display: block;
+      width: 200px;
+    }
+
+    .wave-group .bar:before,
+    .wave-group .bar:after {
+      content: "";
+      height: 2px;
+      width: 0;
+      bottom: 1px;
+      position: absolute;
+      background: #5264ae;
+      transition: 0.2s ease all;
+      -moz-transition: 0.2s ease all;
+      -webkit-transition: 0.2s ease all;
+    }
+
+    .wave-group .bar:before {
+      left: 50%;
+    }
+
+    .wave-group .bar:after {
+      right: 50%;
+    }
+
+    .wave-group .input:focus~.bar:before,
+    .wave-group .input:focus~.bar:after {
+      width: 50%;
+    }
+  </style>
+</body>
+
+</html>

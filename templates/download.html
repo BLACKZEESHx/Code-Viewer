@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Page</title>
+    <script>
+        function getWindowsVersion() {
+            var userAgent = navigator.userAgent.toLowerCase();
+            if (userAgent.indexOf("windows nt 10.0") != -1) return "Windows 10";
+            if (userAgent.indexOf("windows nt 6.3") != -1) return "Windows 8.1";
+            if (userAgent.indexOf("windows nt 6.2") != -1) return "Windows 8";
+            if (userAgent.indexOf("windows nt 6.1") != -1) return "Windows 7";
+            if (userAgent.indexOf("windows nt 6.0") != -1) return "Windows Vista";
+            if (userAgent.indexOf("windows nt 5.1") != -1) return "Windows XP";
+            return "Unknown";
+        }
+
+        function downloadFile() {
+            var windowsVersion = getWindowsVersion();
+            var fileName = '';
+
+            // Set the appropriate file name based on the detected Windows version
+            switch (windowsVersion) {
+                case "Windows 10":
+                    fileName = 'CodeVeiwer_windows10_version.exe';
+                    break;
+                case "Windows 8.1":
+                    fileName = 'CodeVeiwer_windows81_version.exe';
+                    break;
+                // Add cases for other Windows versions as needed
+                default:
+                    fileName = 'CodeVeiwer_default_version.zip';
+                    break;
+            }
+
+            var downloadLink = 'http://localhost:1892/templates/' + fileName;
+
+            var a = document.createElement('a');
+            a.href = downloadLink;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Download Page</h1>
+    <p>Click the button below to download the file.</p>
+    <button onclick="downloadFile()">Download</button>
+</body>
+
+</html>
